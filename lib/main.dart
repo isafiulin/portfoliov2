@@ -17,6 +17,6 @@ void main() async {
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ru')],
       path: GlobalGeneralConstants.translationsPath,
-      fallbackLocale: const Locale('en'),
+      fallbackLocale: const Locale('ru'),
       child: const ProviderScope(child: MyApp())));
 }
