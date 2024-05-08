@@ -6,7 +6,7 @@ import 'package:my_portfolio/app.dart';
 import 'package:my_portfolio/core/constants/global_general_constants.dart';
 
 void configureApp() {
-  setUrlStrategy(PathUrlStrategy());
+  usePathUrlStrategy();
 }
 
 void main() async {
