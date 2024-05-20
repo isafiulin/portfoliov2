@@ -98,7 +98,7 @@ class DemoSection extends StatelessWidget {
                                   height: 50,
                                   child: ElevatedButton(
                                     style: const ButtonStyle(
-                                      backgroundColor: MaterialStatePropertyAll(
+                                      backgroundColor: WidgetStatePropertyAll(
                                         kPrimaryColor,
                                       ),
                                     ),

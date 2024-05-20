@@ -29,7 +29,7 @@ class MyThemes {
     primarySwatch: Colors.yellow,
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all(kBackgroundColor))),
+            foregroundColor: WidgetStateProperty.all(kBackgroundColor))),
   );
   static final darkTheme = ThemeData(
       scaffoldBackgroundColor: const Color.fromRGBO(7, 17, 26, 1),
@@ -39,6 +39,6 @@ class MyThemes {
       iconTheme: IconThemeData(color: Colors.grey[400]),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all(Colors.white),
+        foregroundColor: WidgetStateProperty.all(Colors.white),
       )));
 }
