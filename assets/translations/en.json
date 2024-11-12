@@ -42,5 +42,6 @@
     "hereAreMyWorks": "Here are My Works",
     "previousWork": "Here are some of my Previous Work :)",
     "viewAll": "View All",
-    "yearsExperience": "Years\nExperience"
+    "yearsExperience": "Years\nExperience",
+    "zombiesGameDesc": "A game where you need to remember which boxes contain zombies and which contain cats. You need to get into the boxes with zombies, and if you get into the boxes with cats, you automatically lose."
 }

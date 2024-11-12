@@ -45,5 +45,6 @@ abstract class  LocaleKeys {
   static const previousWork = 'previousWork';
   static const viewAll = 'viewAll';
   static const yearsExperience = 'yearsExperience';
+  static const zombiesGameDesc = 'zombiesGameDesc';
 
 }

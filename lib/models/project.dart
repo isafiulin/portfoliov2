@@ -34,12 +34,22 @@ class ProjectModel {
   static List<ProjectModel> projects = [
     ProjectModel(
       project: "Flutter APP",
+      title: "Zombies Game",
+      description: LocaleKeys.zombiesGameDesc,
+      projectLink: 'https://github.com/isafiulin/zombies_game',
+      internalLink: false,
+      techUsed: [
+        TechnologyConstants.flutter,
+      ],
+      buttonText: LocaleKeys.github,
+    ),
+    ProjectModel(
+      project: "Flutter APP",
       title: "Mama Space",
       description: LocaleKeys.mamaSpaceDes,
       appPhotos: AssetImageConstant.mamaspace,
       projectLink:
           'https://play.google.com/store/apps/details?id=space.eiwa.mamaspace',
-      projectLink2: 'https://apps.apple.com/kg/app/mama-space/id6478853752',
       internalLink: false,
       techUsed: [
         TechnologyConstants.flutter,
@@ -84,6 +94,7 @@ class ProjectModel {
       appPhotos: AssetImageConstant.indenimcrm,
       projectLink:
           'https://play.google.com/store/apps/details?id=uz.indenim.indenim',
+      projectLink2: 'https://apps.apple.com/kg/app/indenim/id6478480695',
       internalLink: false,
       techUsed: [
         TechnologyConstants.flutter,
