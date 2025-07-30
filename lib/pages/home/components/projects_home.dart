@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/core/routes/routes.dart';
@@ -32,8 +33,8 @@ class ProjectsHome extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 5,
+        SizedBox(
+          height: 5.h,
         ),
         Text(
           context.tr(LocaleKeys.hereAreMyWorks),

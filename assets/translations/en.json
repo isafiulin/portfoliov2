@@ -43,5 +43,8 @@
     "previousWork": "Here are some of my Previous Work :)",
     "viewAll": "View All",
     "yearsExperience": "Years\nExperience",
-    "zombiesGameDesc": "A game where you need to remember which boxes contain zombies and which contain cats. You need to get into the boxes with zombies, and if you get into the boxes with cats, you automatically lose."
+    "zombiesGameDesc": "A game where you need to remember which boxes contain zombies and which contain cats. You need to get into the boxes with zombies, and if you get into the boxes with cats, you automatically lose.",
+    "tkBussinesDesc": "Application for sellers and auto parts services. Receive requests from real customers, manage orders and expand your business across the country through a convenient platform.",
+    "tezKyzmatDesc": "A convenient service for fast search and ordering of auto parts and auto services. Simply select the category, specify the brand and model of the car — and get offers from stores and services. Without intermediaries and unnecessary time costs.",
+    "dealzDesc": "An application for buyers and sellers. Allows buyers to search for goods and services, and sellers to place ads for the sale of goods and services."
 }

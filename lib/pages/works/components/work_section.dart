@@ -149,8 +149,9 @@ class WorkSection extends StatelessWidget {
                                   },
                                   child: Center(
                                     child: Text(
-                                      (projectModel.buttonText ??
-                                              "Explore MORE")
+                                      (projectModel.buttonText != null
+                                              ? tr(projectModel.buttonText!)
+                                              : "Explore MORE")
                                           .toUpperCase(),
                                       style: TextStyle(
                                         fontSize: 13.0,
@@ -187,8 +188,9 @@ class WorkSection extends StatelessWidget {
                                     },
                                     child: Center(
                                       child: Text(
-                                        (projectModel.buttonText2 ??
-                                                "Explore MORE")
+                                        (projectModel.buttonText2 != null
+                                                ? tr(projectModel.buttonText2!)
+                                                : "Explore MORE")
                                             .toUpperCase(),
                                         style: TextStyle(
                                           fontSize: 13.0,

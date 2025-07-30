@@ -34,6 +34,48 @@ class ProjectModel {
   static List<ProjectModel> projects = [
     ProjectModel(
       project: "Flutter APP",
+      title: "TK Bussines",
+      description: LocaleKeys.tkBussinesDesc,
+      appPhotos: AssetImageConstant.tkBussines,
+      projectLink:
+          'https://play.google.com/store/apps/details?id=kg.tezkyzmat.sellerapp',
+      internalLink: false,
+      techUsed: [
+        TechnologyConstants.flutter,
+        TechnologyConstants.firebase,
+      ],
+      buttonText: LocaleKeys.androidlink,
+      buttonText2: LocaleKeys.iosLink,
+    ),
+    ProjectModel(
+      project: "Flutter APP",
+      title: "Tez Kyzmat",
+      description: LocaleKeys.tezKyzmatDesc,
+      appPhotos: AssetImageConstant.tezKyzmat,
+      projectLink:
+          'https://play.google.com/store/apps/details?id=kg.tezkyzmat.clientapp',
+      internalLink: false,
+      techUsed: [
+        TechnologyConstants.flutter,
+        TechnologyConstants.firebase,
+      ],
+      buttonText: LocaleKeys.androidlink,
+      buttonText2: LocaleKeys.iosLink,
+    ),
+    ProjectModel(
+      project: "Flutter APP",
+      title: "Dealz",
+      description: LocaleKeys.dealzDesc,
+      appPhotos: AssetImageConstant.dealz,
+      projectLink: '',
+      internalLink: false,
+      techUsed: [
+        TechnologyConstants.flutter,
+        TechnologyConstants.firebase,
+      ],
+    ),
+    ProjectModel(
+      project: "Flutter APP",
       title: "Zombies Game",
       description: LocaleKeys.zombiesGameDesc,
       projectLink: 'https://github.com/isafiulin/zombies_game',
@@ -50,6 +92,7 @@ class ProjectModel {
       appPhotos: AssetImageConstant.mamaspace,
       projectLink:
           'https://play.google.com/store/apps/details?id=space.eiwa.mamaspace',
+      projectLink2: 'https://apps.apple.com/kg/app/mama-space/id6478853752',
       internalLink: false,
       techUsed: [
         TechnologyConstants.flutter,

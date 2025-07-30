@@ -27,7 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  amplitude_flutter: ^3.16.2
+  amplitude_flutter: ^4.3.5
   animated_theme_switcher: ^2.0.8
   carousel_slider: ^5.0.0
   cupertino_icons: ^1.0.2
@@ -39,7 +39,7 @@ dependencies:
   flutter_riverpod: ^2.4.4
   flutter_svg: ^2.0.10+1
   font_awesome_flutter: ^10.6.0
-  go_router: ^14.1.2
+  go_router: ^16.0.0
   google_fonts: ^6.1.0
   responsive_framework: ^1.4.0
   url_launcher: ^6.0.20
@@ -47,9 +47,10 @@ dependencies:
   flutter_smart_dialog: ^4.9.6
   countries_flag: ^1.0.0
   nested_scroll_views: ^0.0.10
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
 

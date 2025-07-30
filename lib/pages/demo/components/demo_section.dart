@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -114,8 +115,9 @@ class DemoSection extends StatelessWidget {
                                     },
                                     child: Center(
                                       child: Text(
-                                        (projectModel.buttonText ??
-                                                "Explore MORE")
+                                        (projectModel.buttonText != null
+                                                ? tr(projectModel.buttonText!)
+                                                : "Explore MORE")
                                             .toUpperCase(),
                                         style: TextStyle(
                                           fontSize: 13.0,

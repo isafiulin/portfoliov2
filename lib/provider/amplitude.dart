@@ -1,21 +1,31 @@
 import 'dart:developer';
 
 import 'package:amplitude_flutter/amplitude.dart';
+import 'package:amplitude_flutter/configuration.dart';
+import 'package:amplitude_flutter/events/base_event.dart';
+import 'package:amplitude_flutter/events/event_options.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/core/constants/environment.dart';
 
 final amplitudeProvider =
-    ChangeNotifierProvider(((ref) => AmplitutdeProvider()));
+    ChangeNotifierProvider(((ref) => AmplitudeProvider()));
 
-class AmplitutdeProvider extends ChangeNotifier {
+class AmplitudeProvider extends ChangeNotifier {
   Amplitude? analytics;
   late DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
 
-  AmplitutdeProvider() {
-    analytics = Amplitude.getInstance(instanceName: "isafiulin");
-    analytics?.init(AppEnvironment.amplitudeAPIKey);
+  AmplitudeProvider() {
+    initAmplitude();
+  }
+  Future<void> initAmplitude() async {
+    analytics = Amplitude(Configuration(
+      apiKey: AppEnvironment.amplitudeAPIKey,
+      flushIntervalMillis: 50000,
+      flushQueueSize: 20,
+    ));
+    analytics?.isBuilt;
   }
 
   Future<void> logStartupEvent() async {
@@ -33,7 +43,8 @@ class AmplitutdeProvider extends ChangeNotifier {
       });
     }
     log("info: $info");
-    analytics?.logEvent('startup', eventProperties: info);
+
+    analytics?.track(BaseEvent('startup'), EventOptions(extra: info));
   }
 
   Future<void> logAScreen(String screenName) async {
@@ -44,11 +55,13 @@ class AmplitutdeProvider extends ChangeNotifier {
     });
 
     log("info: $info");
-    analytics?.logEvent('screens_log', eventProperties: info);
+    analytics?.track(BaseEvent('screens_log'), EventOptions(extra: info));
+
+    // analytics?.logEvent('screens_log', eventProperties: info);
   }
 
   Future<void> logJsonParseError(Map<String, dynamic> json) async {
     log("info: $json");
-    analytics?.logEvent('json_parse_error', eventProperties: json);
+    analytics?.track(BaseEvent('json_parse_error'), EventOptions(extra: json));
   }
 }

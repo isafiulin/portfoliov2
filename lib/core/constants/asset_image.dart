@@ -3,7 +3,7 @@ class AssetImageConstant {
   static const _outputs = "outputs/";
 
   static const _images = "${_assets}images/";
-  static const personSvg = "${_images}profile_new.png";
+  static const personSvg = "${_images}me.png";
   static const maskotImage = "${_images}maskot.png";
 
   static const _techImages = "${_images}technology/";
@@ -19,7 +19,9 @@ class AssetImageConstant {
   static const loygift = "${_projectsImages}loygift.png";
   static const sano = "${_projectsImages}sano.png";
   static const iskender = "${_projectsImages}iskender.png";
-
+  static const tkBussines = "${_projectsImages}tkbus.png";
+  static const tezKyzmat = "${_projectsImages}tez.png";
+  static const dealz = "${_projectsImages}dealz.png";
   static const _gifs = "${_outputs}gif/";
   static const portfolioGif = "${_gifs}mobile.gif";
 }

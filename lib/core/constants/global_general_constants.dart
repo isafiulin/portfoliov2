@@ -16,7 +16,7 @@ class GlobalGeneralConstants {
       'https://www.instagram.com/kshishkovich__';
   static const String git = '@isafiulin';
 
-  static const String tgLink = 'tg://resolve?phone=$phone';
+  static const String tgLink = 'https://t.me/isafiulin';
   static const String linkedInLink =
       'https://www.linkedin.com/in/ilgiz-safiulin-604977174/';
   static const String gitHubLink = 'https://github.com/isafiulin';

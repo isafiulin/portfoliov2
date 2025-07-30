@@ -1,5 +1,7 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
+// ignore_for_file: constant_identifier_names
+
 abstract class  LocaleKeys {
   static const flutterDeveloper = 'flutterDeveloper';
   static const telegram = 'telegram';
@@ -46,5 +48,8 @@ abstract class  LocaleKeys {
   static const viewAll = 'viewAll';
   static const yearsExperience = 'yearsExperience';
   static const zombiesGameDesc = 'zombiesGameDesc';
+  static const tkBussinesDesc = 'tkBussinesDesc';
+  static const tezKyzmatDesc = 'tezKyzmatDesc';
+  static const dealzDesc = 'dealzDesc';
 
 }

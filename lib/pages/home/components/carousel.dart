@@ -16,62 +16,31 @@ class Carousel extends StatelessWidget {
     double carouselContainerHeight = MediaQuery.of(context).size.height *
         (ScreenHelper.isMobile(context) ? .7 : .85);
     return SizedBox(
-      height: carouselContainerHeight,
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            alignment: Alignment.center,
-            child: CarouselSlider(
-              carouselController: carouselController,
-              options: CarouselOptions(
-                // autoPlay: true,
-                viewportFraction: 1,
-                scrollPhysics: const NeverScrollableScrollPhysics(),
-                height: carouselContainerHeight,
-              ),
-              items: List.generate(
-                carouselItems(carouselContainerHeight, context).length,
-                (index) => Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      constraints: BoxConstraints(
-                        minHeight: carouselContainerHeight,
-                      ),
-                      child: ScreenHelper(
-                        // Responsive views
-                        desktop: _buildDesktop(
-                          context,
-                          carouselItems(carouselContainerHeight, context)[index]
-                              .text,
-                          carouselItems(carouselContainerHeight, context)[index]
-                              .image,
-                        ),
-                        tablet: _buildTablet(
-                          context,
-                          carouselItems(carouselContainerHeight, context)[index]
-                              .text,
-                          carouselItems(carouselContainerHeight, context)[index]
-                              .image,
-                        ),
-                        mobile: _buildMobile(
-                          context,
-                          carouselItems(carouselContainerHeight, context)[index]
-                              .text,
-                          carouselItems(carouselContainerHeight, context)[index]
-                              .image,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ).toList(),
+        height: carouselContainerHeight,
+        width: double.infinity,
+        child: Container(
+          constraints: BoxConstraints(
+            minHeight: carouselContainerHeight,
+          ),
+          child: ScreenHelper(
+            // Responsive views
+            desktop: _buildDesktop(
+              context,
+              carouselItems(carouselContainerHeight, context)[0].text,
+              carouselItems(carouselContainerHeight, context)[0].image,
+            ),
+            tablet: _buildTablet(
+              context,
+              carouselItems(carouselContainerHeight, context)[0].text,
+              carouselItems(carouselContainerHeight, context)[0].image,
+            ),
+            mobile: _buildMobile(
+              context,
+              carouselItems(carouselContainerHeight, context)[0].text,
+              carouselItems(carouselContainerHeight, context)[0].image,
             ),
           ),
-        ],
-      ),
-    );
+        ));
   }
 }
 

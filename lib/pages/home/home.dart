@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:countries_flag/countries_flag.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:my_portfolio/core/utils/globals.dart';
 import 'package:my_portfolio/core/utils/screen_helper.dart';
@@ -14,7 +16,7 @@ import 'package:my_portfolio/pages/home/components/footer.dart';
 import 'package:my_portfolio/pages/home/components/header.dart';
 
 import 'package:my_portfolio/pages/home/components/projects_home.dart';
-import 'package:my_portfolio/provider/amplitutde.dart';
+import 'package:my_portfolio/provider/amplitude.dart';
 import 'package:my_portfolio/provider/home.dart';
 import 'package:my_portfolio/provider/theme.dart';
 import 'package:my_portfolio/widgets/switch.dart';
@@ -29,17 +31,17 @@ class Home extends ConsumerStatefulWidget {
 class _HomeState extends ConsumerState<Home>
     with SingleTickerProviderStateMixin {
   late HomeProvider _homeProvider;
-  late AmplitutdeProvider _amplitutdeProvider;
+  late AmplitudeProvider _AmplitudeProvider;
 
   @override
   void initState() {
     _homeProvider = ref.read(homeProvider);
-    _amplitutdeProvider = ref.read(amplitudeProvider);
+    _AmplitudeProvider = ref.read(amplitudeProvider);
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       Timer(const Duration(seconds: 2), () async {
-        _amplitutdeProvider.logStartupEvent();
-        await _amplitutdeProvider.logAScreen("home");
+        _AmplitudeProvider.logStartupEvent();
+        await _AmplitudeProvider.logAScreen("home");
       });
     });
     super.initState();
@@ -48,14 +50,14 @@ class _HomeState extends ConsumerState<Home>
   Widget _buildPage() {
     return Stack(
       children: [
-        ScrollConfiguration(
-          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: ScreenHelper.isDesktop(context) ||
-                        ScreenHelper.isTablet(context)
-                    ? 60
-                    : 16.0),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: ScreenHelper.isDesktop(context) ||
+                      ScreenHelper.isTablet(context)
+                  ? 60
+                  : 16.0),
+          child: ScrollConfiguration(
+            behavior: MyCustomScrollBehavior(),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
@@ -66,12 +68,12 @@ class _HomeState extends ConsumerState<Home>
                   ),
                   SizedBox(
                     key: _homeProvider.aboutKey,
-                    height: 100.0,
+                    height: 100.0.h,
                   ),
                   const AboutSection(),
                   SizedBox(
                     key: _homeProvider.portfolioKey,
-                    height: 100.0,
+                    height: 100.0.h,
                   ),
                   const ProjectsHome(),
                   Footer(
@@ -206,4 +208,14 @@ class _HomeState extends ConsumerState<Home>
       ),
     );
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.unknown,
+      };
 }

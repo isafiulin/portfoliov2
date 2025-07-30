@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,12 +17,51 @@ import '../../../models/carousel_item_model.dart';
 List<CarouselItemModel> carouselItems(
         double carouselContainerHeight, BuildContext context) =>
     List.generate(
-      5,
+      1,
       (index) => CarouselItemModel(
         text: SizedBox(
           height: carouselContainerHeight,
           child: Stack(
+            clipBehavior: Clip.antiAlias,
             children: [
+              MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: SizedBox(
+                  height: carouselContainerHeight - 70,
+                  child: Consumer(builder: (context, ref, _) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: GlobalGeneralConstants.socialLoginDatas
+                          .map((e) => Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: InkWell(
+                                  onTap: e.onTap,
+                                  child: Container(
+                                    width: 30,
+                                    height: 30,
+                                    margin: const EdgeInsets.all(5),
+                                    // child: Image.asset(e.title),
+                                    child: Center(
+                                      child: FaIcon(
+                                        e.iconData,
+                                        color:
+                                            ref.watch(themeProvider).isDarkMode
+                                                ? MyThemes.lightTheme
+                                                    .scaffoldBackgroundColor
+                                                : MyThemes.darkTheme
+                                                    .scaffoldBackgroundColor
+                                                    .withOpacity(0.8),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ))
+                          .toList(),
+                    );
+                  }),
+                ),
+              ),
               Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -78,6 +119,7 @@ List<CarouselItemModel> carouselItems(
                       cursor: SystemMouseCursors.click,
                       child: InkWell(
                         onTap: () {
+                          log("tgLink: ${GlobalGeneralConstants.tgLink}");
                           CommonUtil.customLaunch(
                             link: GlobalGeneralConstants.tgLink,
                             errorMessage: tr(LocaleKeys.baseError),
@@ -124,44 +166,6 @@ List<CarouselItemModel> carouselItems(
                   ],
                 ),
               ),
-              MouseRegion(
-                cursor: SystemMouseCursors.click,
-                child: SizedBox(
-                  height: carouselContainerHeight - 70,
-                  child: Consumer(builder: (context, ref, _) {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: GlobalGeneralConstants.socialLoginDatas
-                          .map((e) => Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: InkWell(
-                                  onTap: e.onTap,
-                                  child: Container(
-                                    width: 30,
-                                    height: 30,
-                                    margin: const EdgeInsets.all(5),
-                                    // child: Image.asset(e.title),
-                                    child: Center(
-                                      child: FaIcon(
-                                        e.iconData,
-                                        color:
-                                            ref.watch(themeProvider).isDarkMode
-                                                ? MyThemes.lightTheme
-                                                    .scaffoldBackgroundColor
-                                                : MyThemes.darkTheme
-                                                    .scaffoldBackgroundColor
-                                                    .withOpacity(0.8),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ))
-                          .toList(),
-                    );
-                  }),
-                ),
-              )
             ],
           ),
         ),
