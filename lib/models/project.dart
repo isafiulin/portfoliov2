@@ -37,6 +37,7 @@ class ProjectModel {
       title: "TK Bussines",
       description: LocaleKeys.tkBussinesDesc,
       appPhotos: AssetImageConstant.tkBussines,
+      projectLink2: 'https://apps.apple.com/kg/app/tk-business/id6748307773',
       projectLink:
           'https://play.google.com/store/apps/details?id=kg.tezkyzmat.sellerapp',
       internalLink: false,
@@ -52,6 +53,7 @@ class ProjectModel {
       title: "Tez Kyzmat",
       description: LocaleKeys.tezKyzmatDesc,
       appPhotos: AssetImageConstant.tezKyzmat,
+      projectLink2: 'https://apps.apple.com/kg/app/tez-kyzmat/id6748315485',
       projectLink:
           'https://play.google.com/store/apps/details?id=kg.tezkyzmat.clientapp',
       internalLink: false,
