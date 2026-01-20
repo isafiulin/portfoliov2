@@ -51,5 +51,6 @@ abstract class  LocaleKeys {
   static const tkBussinesDesc = 'tkBussinesDesc';
   static const tezKyzmatDesc = 'tezKyzmatDesc';
   static const dealzDesc = 'dealzDesc';
+  static const joopbarDes = 'joopbarDes';
 
 }

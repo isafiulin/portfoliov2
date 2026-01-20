@@ -17,6 +17,9 @@ void main() async {
 
   runApp(ScreenUtilInit(
     designSize: const Size(430, 932),
+    minTextAdapt: true,
+    splitScreenMode: true,
+    fontSizeResolver: FontSizeResolvers.height,
     child: EasyLocalization(
         supportedLocales: const [Locale('en'), Locale('ru')],
         path: GlobalGeneralConstants.translationsPath,

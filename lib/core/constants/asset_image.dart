@@ -24,4 +24,5 @@ class AssetImageConstant {
   static const dealz = "${_projectsImages}dealz.png";
   static const _gifs = "${_outputs}gif/";
   static const portfolioGif = "${_gifs}mobile.gif";
+  static const joopbar = "${_projectsImages}joopbar.png";
 }

@@ -89,6 +89,21 @@ class ProjectModel {
     ),
     ProjectModel(
       project: "Flutter APP",
+      title: "Joopbar",
+      description: LocaleKeys.joopbarDes,
+      appPhotos: AssetImageConstant.joopbar,
+      projectLink:
+          'https://play.google.com/store/apps/details?id=kg.jia.joopbar&hl=ru',
+      projectLink2: 'https://apps.apple.com/ru/app/joopbar/id6741681897',
+      internalLink: false,
+      techUsed: [
+        TechnologyConstants.flutter,
+      ],
+      buttonText: LocaleKeys.androidlink,
+      buttonText2: LocaleKeys.iosLink,
+    ),
+    ProjectModel(
+      project: "Flutter APP",
       title: "Mama Space",
       description: LocaleKeys.mamaSpaceDes,
       appPhotos: AssetImageConstant.mamaspace,

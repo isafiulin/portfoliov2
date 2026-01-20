@@ -54,8 +54,8 @@ class _HomeState extends ConsumerState<Home>
           padding: EdgeInsets.symmetric(
               horizontal: ScreenHelper.isDesktop(context) ||
                       ScreenHelper.isTablet(context)
-                  ? 60
-                  : 16.0),
+                  ? 60.w
+                  : 16.0.w),
           child: ScrollConfiguration(
             behavior: MyCustomScrollBehavior(),
             child: SingleChildScrollView(
