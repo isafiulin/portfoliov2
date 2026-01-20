@@ -12,37 +12,42 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 final List<FooterItem> footerItems = [
   FooterItem(
-      iconData: Icons.location_on,
-      title: LocaleKeys.location,
-      text1: LocaleKeys.bishkek,
-      text2: LocaleKeys.kyrgyzstan,
-      onTap: null),
+    iconData: Icons.location_on,
+    title: LocaleKeys.location,
+    text1: LocaleKeys.bishkek,
+    text2: LocaleKeys.kyrgyzstan,
+    onTap: null,
+  ),
   FooterItem(
-      iconData: Icons.phone,
-      title: LocaleKeys.contact,
-      text1: GlobalGeneralConstants.phone,
-      text2: "",
-      onTap: () {
-        CommonUtil.customLaunch(link: GlobalGeneralConstants.phoneCall);
-      }),
+    iconData: Icons.phone,
+    title: LocaleKeys.contact,
+    text1: GlobalGeneralConstants.phone,
+    text2: "",
+    onTap: () {
+      CommonUtil.customLaunch(link: GlobalGeneralConstants.phoneCall);
+    },
+  ),
   FooterItem(
-      iconData: Icons.mail,
-      title: LocaleKeys.email,
-      text1: GlobalGeneralConstants.mail,
-      text2: "",
-      onTap: () {
-        CommonUtil.customLaunch(link: GlobalGeneralConstants.mailTo);
-      }),
+    iconData: Icons.mail,
+    title: LocaleKeys.email,
+    text1: GlobalGeneralConstants.mail,
+    text2: "",
+    onTap: () {
+      CommonUtil.customLaunch(link: GlobalGeneralConstants.mailTo);
+    },
+  ),
   FooterItem(
-      iconData: FontAwesomeIcons.whatsapp,
-      title: LocaleKeys.wa,
-      text1: GlobalGeneralConstants.phone,
-      text2: "",
-      onTap: () {
-        CommonUtil.customLaunch(
-            link: GlobalGeneralConstants.waMain,
-            iosLink: GlobalGeneralConstants.waIOS);
-      })
+    iconData: FontAwesomeIcons.whatsapp,
+    title: LocaleKeys.wa,
+    text1: GlobalGeneralConstants.phone,
+    text2: "",
+    onTap: () {
+      CommonUtil.customLaunch(
+        link: GlobalGeneralConstants.waMain,
+        iosLink: GlobalGeneralConstants.waIOS,
+      );
+    },
+  ),
 ];
 
 class Footer extends StatelessWidget {
@@ -75,8 +80,10 @@ Widget _buildUi(double width, BuildContext context) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 50.0, horizontal: 5),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 50.0,
+                  horizontal: 5,
+                ),
                 child: Wrap(
                   runAlignment: WrapAlignment.center,
                   alignment: WrapAlignment.center,
@@ -97,9 +104,7 @@ Widget _buildUi(double width, BuildContext context) {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const SizedBox(
-                                    height: 10.0,
-                                  ),
+                                  const SizedBox(height: 10.0),
                                   Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
@@ -110,21 +115,19 @@ Widget _buildUi(double width, BuildContext context) {
                                         color: kPrimaryColor,
                                         size: 28,
                                       ),
-                                      const SizedBox(
-                                        width: 15.0,
-                                      ),
-                                      Text(
-                                        context.tr(footerItem.title),
-                                        style: GoogleFonts.josefinSans(
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.w700,
+                                      const SizedBox(width: 15.0),
+                                      Flexible(
+                                        child: Text(
+                                          context.tr(footerItem.title),
+                                          style: GoogleFonts.josefinSans(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.w700,
+                                          ),
                                         ),
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(
-                                    height: 10.0,
-                                  ),
+                                  const SizedBox(height: 10.0),
                                   RichText(
                                     textAlign: TextAlign.start,
                                     text: TextSpan(
@@ -143,10 +146,10 @@ Widget _buildUi(double width, BuildContext context) {
                                           style: const TextStyle(
                                             color: kCaptionColor,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -156,9 +159,7 @@ Widget _buildUi(double width, BuildContext context) {
                       .toList(),
                 ),
               ),
-              const SizedBox(
-                height: 20.0,
-              ),
+              const SizedBox(height: 20.0),
               const Flex(
                 direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -167,13 +168,11 @@ Widget _buildUi(double width, BuildContext context) {
                     padding: EdgeInsets.only(bottom: 8.0),
                     child: Text(
                       "Developed in 💛 with Flutter",
-                      style: TextStyle(
-                        color: kCaptionColor,
-                      ),
+                      style: TextStyle(color: kCaptionColor),
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           );
         },

@@ -6,7 +6,7 @@ import 'package:amplitude_flutter/events/base_event.dart';
 import 'package:amplitude_flutter/events/event_options.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import 'package:my_portfolio/core/constants/environment.dart';
 
 final amplitudeProvider =
