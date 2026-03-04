@@ -11,6 +11,7 @@ import 'package:my_portfolio/generated/locale_keys.g.dart';
 import 'package:my_portfolio/models/project.dart';
 import 'package:my_portfolio/pages/home/home.dart';
 import 'package:my_portfolio/provider/theme.dart';
+import 'package:my_portfolio/widgets/fullscreen_image_viewer.dart';
 
 class ProjectSection extends StatelessWidget {
   final List<ProjectModel> projects;
@@ -68,10 +69,23 @@ class ProjectSection extends StatelessWidget {
                     if (projectModel.appPhotos != null)
                       SizedBox(
                         width: ScreenHelper.isMobile(context) ? 180.w : 180.w,
-                        child: Image.asset(
-                          projectModel.appPhotos!,
-                          width: 180.w,
-                          height: 250.h,
+                        child: GestureDetector(
+                          onTap: () => showAssetImageViewer(
+                            context,
+                            assetPath: projectModel.appPhotos!,
+                          ),
+                          child: Hero(
+                            tag: projectModel.appPhotos!,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.asset(
+                                projectModel.appPhotos!,
+                                width: 180.w,
+                                height: 250.h,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
 

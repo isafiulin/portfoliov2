@@ -20,6 +20,8 @@ class AssetImageConstant {
   static const sano = "${_projectsImages}sano.png";
   static const iskender = "${_projectsImages}iskender.png";
   static const tkBussines = "${_projectsImages}tkbus.png";
+  static const kyrgyzTiliLearnPlay = "${_projectsImages}kyrgyztili.png";
+  static const rmConnect = "${_projectsImages}rmconnect.png";
   static const tezKyzmat = "${_projectsImages}tez.png";
   static const dealz = "${_projectsImages}dealz.png";
   static const _gifs = "${_outputs}gif/";

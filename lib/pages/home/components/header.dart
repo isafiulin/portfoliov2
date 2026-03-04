@@ -67,32 +67,38 @@ class HeaderRow extends StatelessWidget {
 
   static List<NameOnTap> get headerItems => [
         NameOnTap(
+          id: 'home',
           title: tr(LocaleKeys.home),
           iconData: Icons.home,
           onTap: () {},
         ),
         NameOnTap(
+          id: 'about',
           title: tr(LocaleKeys.aboutMe),
           onTap: () {},
           iconData: Icons.info,
         ),
         NameOnTap(
+          id: 'projects',
           title: tr(LocaleKeys.projects),
           onTap: () {},
           iconData: Icons.work,
         ),
         NameOnTap(
+          id: 'contact',
           title: tr(LocaleKeys.contact),
           onTap: () {},
           iconData: Icons.contact_mail,
         ),
         NameOnTap(
+          id: 'themes',
           title: tr(LocaleKeys.themes),
           onTap: () {},
           iconData: Icons.light_mode_outlined,
           isDarkTheme: true,
         ),
         NameOnTap(
+          id: 'language',
           title: "LanguageSwitch",
           onTap: () {},
         ),
@@ -109,9 +115,8 @@ class HeaderRow extends StatelessWidget {
         builder: (context, ref, child) {
           return Row(children: [
             ...headerItems.map(
-              (item) => item.title == tr(LocaleKeys.themes) ||
-                      item.title == 'LanguageSwitch'
-                  ? const Text("")
+              (item) => item.id == 'themes' || item.id == 'language'
+                  ? const SizedBox.shrink()
                   : MouseRegion(
                       cursor: SystemMouseCursors.click,
                       child: Container(
@@ -125,8 +130,7 @@ class HeaderRow extends StatelessWidget {
                           child: Text(
                             item.title,
                             style: TextStyle(
-                              color:
-                                  item.title == "Blogs" ? kPrimaryColor : null,
+                              color: null,
                               fontSize: 14.0,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2,
@@ -161,7 +165,7 @@ class Header extends StatelessWidget {
   Widget buildMobileHeader(BuildContext context) {
     return SafeArea(
       child: Container(
-        color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95),
+        color: Theme.of(context).scaffoldBackgroundColor.withAlpha(95),
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -185,7 +189,7 @@ class Header extends StatelessWidget {
   // Lets plan for mobile and smaller width screens
   Widget buildHeader(BuildContext context, Widget themeSwitch) {
     return Container(
-      color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95),
+      color: Theme.of(context).scaffoldBackgroundColor.withAlpha(95),
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: ScreenHelper.isDesktop(context) ? 24 : 16.0),

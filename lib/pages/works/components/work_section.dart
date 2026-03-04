@@ -9,6 +9,7 @@ import 'package:my_portfolio/core/utils/screen_helper.dart';
 import 'package:my_portfolio/generated/locale_keys.g.dart';
 import 'package:my_portfolio/models/project.dart';
 import 'package:my_portfolio/provider/theme.dart';
+import 'package:my_portfolio/widgets/fullscreen_image_viewer.dart';
 
 class WorkSection extends StatelessWidget {
   final List<ProjectModel> projects;
@@ -58,10 +59,24 @@ class WorkSection extends StatelessWidget {
                 direction: Axis.vertical,
                 children: [
                   if (projectModel.appPhotos != null)
-                    Image.asset(
-                      projectModel.appPhotos!,
-                      width: constraints.maxWidth > 720.0 ? null : 350.0,
-                      height: 250,
+                    GestureDetector(
+                      onTap: () => showAssetImageViewer(
+                        context,
+                        assetPath: projectModel.appPhotos!,
+                      ),
+                      child: Hero(
+                        tag: projectModel.appPhotos!,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            projectModel.appPhotos!,
+                            width:
+                                constraints.maxWidth > 720.0 ? null : 350.0,
+                            height: 250,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
                     ),
                   const SizedBox(
                     width: 20,

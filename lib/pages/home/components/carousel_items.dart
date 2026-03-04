@@ -51,7 +51,7 @@ List<CarouselItemModel> carouselItems(
                                                     .scaffoldBackgroundColor
                                                 : MyThemes.darkTheme
                                                     .scaffoldBackgroundColor
-                                                    .withOpacity(0.8),
+                                                    .withAlpha(80),
                                       ),
                                     ),
                                   ),

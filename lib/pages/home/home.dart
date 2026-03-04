@@ -1,7 +1,4 @@
-import 'dart:async';
 import 'dart:ui';
-
-import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:countries_flag/countries_flag.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +13,6 @@ import 'package:my_portfolio/pages/home/components/footer.dart';
 import 'package:my_portfolio/pages/home/components/header.dart';
 
 import 'package:my_portfolio/pages/home/components/projects_home.dart';
-import 'package:my_portfolio/provider/amplitude.dart';
 import 'package:my_portfolio/provider/home.dart';
 import 'package:my_portfolio/provider/theme.dart';
 import 'package:my_portfolio/widgets/switch.dart';
@@ -31,18 +27,13 @@ class Home extends ConsumerStatefulWidget {
 class _HomeState extends ConsumerState<Home>
     with SingleTickerProviderStateMixin {
   late HomeProvider _homeProvider;
-  late AmplitudeProvider _AmplitudeProvider;
 
   @override
   void initState() {
     _homeProvider = ref.read(homeProvider);
-    _AmplitudeProvider = ref.read(amplitudeProvider);
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      Timer(const Duration(seconds: 2), () async {
-        _AmplitudeProvider.logStartupEvent();
-        await _AmplitudeProvider.logAScreen("home");
-      });
+      // Post-frame initialization if needed
     });
     super.initState();
   }
@@ -85,20 +76,12 @@ class _HomeState extends ConsumerState<Home>
           ),
         ),
         Header(
-          themeSwitch: ThemeSwitcher(
-              clipper: const ThemeSwitcherBoxClipper(),
-              builder: (context) {
-                return CustomSwitch(
-                  value: ref.watch(themeProvider).isDarkMode,
-                  onChanged: (val) {
-                    ref.read(themeProvider).changeTheme(val);
-                    ThemeSwitcher.of(context).changeTheme(
-                        theme: ref.read(themeProvider).getCurrentTheme,
-                        isReversed: false // default: false
-                        );
-                  },
-                );
-              }),
+          themeSwitch: CustomSwitch(
+            value: ref.watch(themeProvider).isDarkMode,
+            onChanged: (val) {
+              ref.read(themeProvider).changeTheme(val);
+            },
+          ),
         ),
       ],
     );
@@ -106,106 +89,88 @@ class _HomeState extends ConsumerState<Home>
 
   @override
   Widget build(BuildContext context) {
-    return ThemeSwitchingArea(
-      child: Scaffold(
-        key: Globals.scaffoldKey,
-        endDrawer: Drawer(
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 24.0,
-              ),
-              child: ListView.separated(
-                itemBuilder: (BuildContext context, int index) {
-                  if (HeaderRow.headerItems[index].title == 'LanguageSwitch') {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            context.setLocale(const Locale('en'));
-                          },
-                          child: CountriesFlag(Flags.unitedStatesOfAmerica,
-                              width: 16,
-                              height: 16,
-                              fit: BoxFit.cover,
-                              alignment: Alignment.center),
-                        ),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            context.setLocale(const Locale('ru'));
-                          },
-                          child: CountriesFlag(Flags.russia,
-                              width: 16,
-                              height: 16,
-                              fit: BoxFit.cover,
-                              alignment: Alignment.center),
-                        ),
-                      ],
-                    );
-                  }
-                  return ListTile(
-                    onTap: () {
-                      if (Globals.scaffoldKey.currentState != null) {
-                        if (Globals.scaffoldKey.currentState!.isEndDrawerOpen) {
-                          Navigator.pop(context);
-                          _homeProvider.scrollBasedOnHeader(
-                              HeaderRow.headerItems[index]);
-                        }
+    return Scaffold(
+      key: Globals.scaffoldKey,
+      endDrawer: Drawer(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 24.0,
+            ),
+            child: ListView.separated(
+              itemBuilder: (BuildContext context, int index) {
+                if (HeaderRow.headerItems[index].id == 'language') {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          context.setLocale(const Locale('en'));
+                        },
+                        child: CountriesFlag(Flags.unitedStatesOfAmerica,
+                            width: 16,
+                            height: 16,
+                            fit: BoxFit.cover,
+                            alignment: Alignment.center),
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          context.setLocale(const Locale('ru'));
+                        },
+                        child: CountriesFlag(Flags.russia,
+                            width: 16,
+                            height: 16,
+                            fit: BoxFit.cover,
+                            alignment: Alignment.center),
+                      ),
+                    ],
+                  );
+                }
+                return ListTile(
+                  onTap: () {
+                    if (Globals.scaffoldKey.currentState != null) {
+                      if (Globals.scaffoldKey.currentState!.isEndDrawerOpen) {
+                        Navigator.pop(context);
+                        _homeProvider.scrollBasedOnHeader(
+                            HeaderRow.headerItems[index]);
                       }
-                    },
-                    leading: Icon(
-                      HeaderRow.headerItems[index].iconData,
-                    ),
-                    title: Text(
-                      HeaderRow.headerItems[index].title,
-                      style: const TextStyle(),
-                    ),
-                    trailing: HeaderRow.headerItems[index].isDarkTheme != null
-                        ? HeaderRow.headerItems[index].isDarkTheme!
-                            ? SizedBox(
-                                width: 50,
-                                child: ThemeSwitcher(
-                                    clipper: const ThemeSwitcherBoxClipper(),
-                                    builder: (context) {
-                                      return CustomSwitch(
-                                        value:
-                                            ref.watch(themeProvider).isDarkMode,
-                                        onChanged: (val) {
-                                          ref
-                                              .read(themeProvider)
-                                              .changeTheme(val);
-                                          ThemeSwitcher.of(context).changeTheme(
-                                              theme: ref
-                                                  .read(themeProvider)
-                                                  .getCurrentTheme,
-                                              isReversed:
-                                                  false // default: false
-                                              );
-                                        },
-                                      );
-                                    }),
-                              )
-                            : null
-                        : null,
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                    height: 10.0,
-                  );
-                },
-                itemCount: HeaderRow.headerItems.length,
-              ),
+                    }
+                  },
+                  leading: Icon(
+                    HeaderRow.headerItems[index].iconData,
+                  ),
+                  title: Text(
+                    HeaderRow.headerItems[index].title,
+                    style: const TextStyle(),
+                  ),
+                  trailing: HeaderRow.headerItems[index].isDarkTheme == true
+                      ? SizedBox(
+                          width: 50,
+                          child: CustomSwitch(
+                            value: ref.watch(themeProvider).isDarkMode,
+                            onChanged: (val) {
+                              ref.read(themeProvider).changeTheme(val);
+                            },
+                          ),
+                        )
+                      : null,
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const SizedBox(
+                  height: 10.0,
+                );
+              },
+              itemCount: HeaderRow.headerItems.length,
             ),
           ),
         ),
-        body: _buildPage(),
       ),
+      body: _buildPage(),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:my_portfolio/pages/home/home.dart';
 import 'package:my_portfolio/pages/splash/splash_view.dart';
 import 'package:my_portfolio/pages/works/works.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:my_portfolio/pages/not_found/not_found.dart';
 
 class Routes {
   static const String initial = "/";
@@ -15,37 +16,37 @@ class Routes {
 }
 
 class RouterGenerator {
-  static GoRouter router = GoRouter(
+  static final GoRouter router = GoRouter(
+    errorBuilder: (context, state) => const NotFoundPage(),
     routes: [
-      GoRoute(
-        path: Routes.initial,
-        builder: (context, state) => const _AppResponsiveBuilder(
-          child: SplashView(),
-        ),
-      ),
-      GoRoute(
-        path: Routes.home,
-        builder: (context, state) => const _AppResponsiveBuilder(
-          child: Home(),
-        ),
+      ShellRoute(
+        builder: (context, state, child) =>
+            _AppResponsiveBuilder(child: child),
         routes: [
           GoRoute(
-            path: Routes.demos,
-            name: Routes.demos,
-            builder: (context, state) =>
-                const _AppResponsiveBuilder(child: DemoScreen()),
+            path: Routes.initial,
+            builder: (context, state) => const SplashView(),
           ),
           GoRoute(
-            path: Routes.myWorks,
-            name: Routes.myWorks,
-            builder: (context, state) =>
-                const _AppResponsiveBuilder(child: MyWorksScreen()),
-          ),
-          GoRoute(
-            path: Routes.simulation,
-            name: Routes.simulation,
-            builder: (context, state) =>
-                const _AppResponsiveBuilder(child: SizedBox()),
+            path: Routes.home,
+            builder: (context, state) => const Home(),
+            routes: [
+              GoRoute(
+                path: Routes.demos,
+                name: Routes.demos,
+                builder: (context, state) => const DemoScreen(),
+              ),
+              GoRoute(
+                path: Routes.myWorks,
+                name: Routes.myWorks,
+                builder: (context, state) => const MyWorksScreen(),
+              ),
+              GoRoute(
+                path: Routes.simulation,
+                name: Routes.simulation,
+                builder: (context, state) => const SizedBox(),
+              ),
+            ],
           ),
         ],
       ),

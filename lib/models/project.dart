@@ -33,6 +33,30 @@ class ProjectModel {
 
   static List<ProjectModel> projects = [
     ProjectModel(
+      project: "Flutter Web",
+      title: "RM Connect",
+      description: LocaleKeys.rmConnectDesc,
+      appPhotos: AssetImageConstant.rmConnect,
+      projectLink: 'https://rmconnect-63b52.web.app',
+      internalLink: false,
+      techUsed: [TechnologyConstants.flutter],
+      buttonText: LocaleKeys.viewAll,
+    ),
+    ProjectModel(
+      project: "Flutter APP",
+      title: "KyrgyzTili Learn&Play",
+      description: LocaleKeys.kyrgyzTiliLearnPlayDesc,
+      appPhotos: AssetImageConstant.kyrgyzTiliLearnPlay,
+      projectLink2:
+          'https://play.google.com/store/apps/details?id=kg.ronin.kyrgyz_til_play',
+      projectLink:
+          'https://apps.apple.com/kg/app/kyrgyz-tili-learn-play/id6758733887',
+      internalLink: false,
+      techUsed: [TechnologyConstants.flutter, TechnologyConstants.firebase],
+      buttonText: LocaleKeys.androidlink,
+      buttonText2: LocaleKeys.iosLink,
+    ),
+    ProjectModel(
       project: "Flutter APP",
       title: "TK Bussines",
       description: LocaleKeys.tkBussinesDesc,
@@ -41,10 +65,7 @@ class ProjectModel {
       projectLink:
           'https://play.google.com/store/apps/details?id=kg.tezkyzmat.sellerapp',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-        TechnologyConstants.firebase,
-      ],
+      techUsed: [TechnologyConstants.flutter, TechnologyConstants.firebase],
       buttonText: LocaleKeys.androidlink,
       buttonText2: LocaleKeys.iosLink,
     ),
@@ -57,10 +78,7 @@ class ProjectModel {
       projectLink:
           'https://play.google.com/store/apps/details?id=kg.tezkyzmat.clientapp',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-        TechnologyConstants.firebase,
-      ],
+      techUsed: [TechnologyConstants.flutter, TechnologyConstants.firebase],
       buttonText: LocaleKeys.androidlink,
       buttonText2: LocaleKeys.iosLink,
     ),
@@ -71,10 +89,7 @@ class ProjectModel {
       appPhotos: AssetImageConstant.dealz,
       projectLink: '',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-        TechnologyConstants.firebase,
-      ],
+      techUsed: [TechnologyConstants.flutter, TechnologyConstants.firebase],
     ),
     ProjectModel(
       project: "Flutter APP",
@@ -82,9 +97,7 @@ class ProjectModel {
       description: LocaleKeys.zombiesGameDesc,
       projectLink: 'https://github.com/isafiulin/zombies_game',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-      ],
+      techUsed: [TechnologyConstants.flutter],
       buttonText: LocaleKeys.github,
     ),
     ProjectModel(
@@ -96,9 +109,7 @@ class ProjectModel {
           'https://play.google.com/store/apps/details?id=kg.jia.joopbar&hl=ru',
       projectLink2: 'https://apps.apple.com/ru/app/joopbar/id6741681897',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-      ],
+      techUsed: [TechnologyConstants.flutter],
       buttonText: LocaleKeys.androidlink,
       buttonText2: LocaleKeys.iosLink,
     ),
@@ -111,9 +122,7 @@ class ProjectModel {
           'https://play.google.com/store/apps/details?id=space.eiwa.mamaspace',
       projectLink2: 'https://apps.apple.com/kg/app/mama-space/id6478853752',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-      ],
+      techUsed: [TechnologyConstants.flutter],
       buttonText: LocaleKeys.androidlink,
       buttonText2: LocaleKeys.iosLink,
     ),
@@ -126,9 +135,7 @@ class ProjectModel {
           'https://play.google.com/store/apps/details?id=com.japanexpress.app.loygift',
       projectLink2: 'https://apps.apple.com/kg/app/japan-express/id6478541162',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-      ],
+      techUsed: [TechnologyConstants.flutter],
       buttonText: LocaleKeys.androidlink,
       buttonText2: LocaleKeys.iosLink,
     ),
@@ -141,9 +148,7 @@ class ProjectModel {
           'https://play.google.com/store/apps/details?id=com.iskender.shop',
       projectLink2: 'https://apps.apple.com/kg/app/iskender-homes/id6468029366',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-      ],
+      techUsed: [TechnologyConstants.flutter],
       buttonText: LocaleKeys.androidlink,
       buttonText2: LocaleKeys.iosLink,
     ),
@@ -156,9 +161,7 @@ class ProjectModel {
           'https://play.google.com/store/apps/details?id=uz.indenim.indenim',
       projectLink2: 'https://apps.apple.com/kg/app/indenim/id6478480695',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-      ],
+      techUsed: [TechnologyConstants.flutter],
       buttonText: LocaleKeys.androidlink,
       buttonText2: LocaleKeys.iosLink,
     ),
@@ -170,9 +173,7 @@ class ProjectModel {
       projectLink:
           'https://play.google.com/store/apps/details?id=uz.indenim.pda',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-      ],
+      techUsed: [TechnologyConstants.flutter],
       buttonText: LocaleKeys.androidlink,
       buttonText2: LocaleKeys.iosLink,
     ),
@@ -186,9 +187,7 @@ class ProjectModel {
       projectLink2:
           'https://apps.apple.com/kg/app/sano-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0-%D1%83%D1%87%D0%B5%D1%82%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%BC%D1%81%D0%B1/id1579276248',
       internalLink: false,
-      techUsed: [
-        TechnologyConstants.flutter,
-      ],
+      techUsed: [TechnologyConstants.flutter],
       buttonText: LocaleKeys.androidlink,
       buttonText2: LocaleKeys.iosLink,
     ),

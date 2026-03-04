@@ -11,8 +11,8 @@ void configureApp() {
 }
 
 void main() async {
-  await EasyLocalization.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   configureApp();
 
   runApp(ScreenUtilInit(

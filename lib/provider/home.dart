@@ -44,14 +44,16 @@ class HomeProvider extends ChangeNotifier {
     }
   }
 
-  scrollBasedOnHeader(NameOnTap nameOnTap) {
-    if (nameOnTap.title == tr(LocaleKeys.contact)) {
+  void scrollBasedOnHeader(NameOnTap nameOnTap) {
+    // Prefer robust id-based switching; fallback to localized title
+    final id = nameOnTap.id;
+    if (id == 'contact' || nameOnTap.title == tr(LocaleKeys.contact)) {
       scrollToContact();
-    } else if (nameOnTap.title == tr(LocaleKeys.home)) {
+    } else if (id == 'home' || nameOnTap.title == tr(LocaleKeys.home)) {
       scrollToHome();
-    } else if (nameOnTap.title == tr(LocaleKeys.projects)) {
+    } else if (id == 'projects' || nameOnTap.title == tr(LocaleKeys.projects)) {
       scrollToPortfolio();
-    } else if (nameOnTap.title == tr(LocaleKeys.aboutMe)) {
+    } else if (id == 'about' || nameOnTap.title == tr(LocaleKeys.aboutMe)) {
       scrollToAbout();
     }
   }

@@ -52,5 +52,7 @@ abstract class  LocaleKeys {
   static const tezKyzmatDesc = 'tezKyzmatDesc';
   static const dealzDesc = 'dealzDesc';
   static const joopbarDes = 'joopbarDes';
+  static const kyrgyzTiliLearnPlayDesc = 'kyrgyzTiliLearnPlayDesc';
+  static const rmConnectDesc = 'rmConnectDesc';
 
 }
